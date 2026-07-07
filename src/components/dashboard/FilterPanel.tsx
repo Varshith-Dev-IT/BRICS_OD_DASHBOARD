@@ -4,13 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { MultiSelectDropdown } from '@/components/ui/multi-select'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
+import { NativeSelect } from '@/components/ui/native-select'
 import { cn } from '@/lib/utils'
 import type { FilterState, Sector, StartupType } from '@/types/project'
 import { SDG_INFO } from '@/types/project'
@@ -145,29 +139,18 @@ export function FilterPanel({ filters, onChange, locations, resultCount }: Filte
           onChange={(startupTypes) => onChange({ ...filters, startupTypes })}
         />
 
-        <div>
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-500">
-            Pilot Location
-          </label>
-          <Select
-            value={filters.pilotLocation || 'all'}
-            onValueChange={(value) =>
-              onChange({ ...filters, pilotLocation: value === 'all' ? '' : value })
-            }
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="All Locations" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Locations</SelectItem>
-              {locations.map((loc) => (
-                <SelectItem key={loc} value={loc}>
-                  {loc}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        <NativeSelect
+          label="Pilot Location"
+          value={filters.pilotLocation || ''}
+          onChange={(e) => onChange({ ...filters, pilotLocation: e.target.value })}
+        >
+          <option value="">All Locations</option>
+          {locations.map((loc) => (
+            <option key={loc} value={loc}>
+              {loc}
+            </option>
+          ))}
+        </NativeSelect>
 
         <MultiSelectDropdown<number>
           label="SDG Levels"

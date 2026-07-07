@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ProjectDetail } from '@/components/project/ProjectDetail'
 import { SDGBadges } from '@/components/project/SDGBadges'
+import { StartupLogo } from '@/components/project/StartupLogo'
 import { projects } from '@/data'
 import { SECTOR_COLORS } from '@/types/project'
 
@@ -62,7 +63,19 @@ export function ProjectDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6"
           >
+            <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-white p-3 shadow-soft sm:h-28 sm:w-28 sm:p-4">
+              <StartupLogo
+                startupName={project.startupName}
+                sector={project.sector}
+                logoUrl={project.logoUrl}
+                size="lg"
+                className="h-full w-full max-h-20 max-w-full sm:max-h-24"
+              />
+            </div>
+
+            <div className="min-w-0 flex-1">
             <p className="text-xs font-semibold uppercase tracking-wider text-saffron-400 sm:text-sm">
               {project.startupName}
             </p>
@@ -92,6 +105,7 @@ export function ProjectDetailPage() {
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/70 sm:mt-4 sm:text-base">
               {project.shortDescription}
             </p>
+            </div>
           </motion.div>
         </div>
       </header>

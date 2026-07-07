@@ -3,7 +3,8 @@ import { ArrowRight, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
+import { StartupLogo } from '@/components/project/StartupLogo'
 import type { Project } from '@/types/project'
 import { SECTOR_COLORS } from '@/types/project'
 
@@ -33,26 +34,35 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.4 }}
     >
-      <Card className="flex h-full min-h-[320px] flex-col overflow-hidden transition-all duration-300 sm:min-h-[380px] sm:hover:-translate-y-1 sm:hover:shadow-glow">
-        <CardHeader className="shrink-0 space-y-0 p-4 pb-3 sm:p-5">
-          <div className="flex items-start justify-between gap-2 sm:gap-3">
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-[11px] font-semibold uppercase tracking-wider text-slate-400 sm:text-xs">
-                {project.startupName}
-              </p>
-              <h3 className="mt-1 line-clamp-2 min-h-[2.5rem] text-sm font-bold leading-snug text-slate-900 sm:min-h-[2.75rem] sm:text-base">
-                {project.projectName}
-              </h3>
-            </div>
+      <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 sm:hover:-translate-y-1 sm:hover:shadow-glow">
+        {/* Logo area */}
+        <div className="flex h-24 shrink-0 items-center justify-center border-b border-slate-100 bg-white px-4 sm:h-28">
+          <StartupLogo
+            startupName={project.startupName}
+            sector={project.sector}
+            logoUrl={project.logoUrl}
+            size="lg"
+          />
+        </div>
+
+        <CardContent className="flex flex-1 flex-col p-4 sm:p-5">
+          <div className="mb-2 flex items-start justify-between gap-2">
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 sm:text-xs">
+              {project.startupName}
+            </p>
             <Badge variant="trl" className="shrink-0 text-[10px] sm:text-xs">
               TRL {project.trl}
             </Badge>
           </div>
 
-          <div className="mt-3 flex min-h-[1.75rem] flex-col items-start gap-1.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
+          <h3 className="text-sm font-bold leading-snug text-slate-900 sm:text-base">
+            {project.projectName}
+          </h3>
+
+          <div className="mt-2 flex flex-col gap-1.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
             <Badge
               variant={getSectorBadgeVariant(project.sector)}
-              className="max-w-full truncate text-[10px] sm:text-xs"
+              className="w-fit max-w-full truncate text-[10px] sm:text-xs"
             >
               {project.sector}
             </Badge>
@@ -63,15 +73,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               </span>
             </span>
           </div>
-        </CardHeader>
 
-        <CardContent className="flex flex-1 flex-col p-4 pt-0 sm:p-5">
-
-          <p className="mb-4 line-clamp-3 min-h-[3.75rem] flex-1 text-sm leading-relaxed text-slate-600 sm:line-clamp-4 sm:min-h-[5rem]">
+          <p className="mt-3 line-clamp-2 flex-1 text-sm leading-relaxed text-slate-600">
             {project.shortDescription}
           </p>
 
-          <Button asChild className="mt-auto h-11 w-full shrink-0 sm:h-10">
+          <Button asChild className="mt-4 h-11 w-full shrink-0 sm:mt-5 sm:h-10">
             <Link to={`/project/${project.id}`}>
               View Details
               <ArrowRight className="h-4 w-4" />
