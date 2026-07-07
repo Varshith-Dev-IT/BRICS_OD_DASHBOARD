@@ -1,8 +1,9 @@
 import type { Project } from '@/types/project'
 import detailedProjects from '@/data/projects.json'
+import additionalProjects from '@/data/projects-11-22.json'
 import { PROJECT_LOGOS } from '@/data/logos'
 
-export const projects: Project[] = (detailedProjects as Project[]).map((project) => ({
+export const projects: Project[] = ([...detailedProjects, ...additionalProjects] as Project[]).map((project) => ({
   ...project,
   logoUrl: PROJECT_LOGOS[project.id] ?? project.logoUrl,
 }))

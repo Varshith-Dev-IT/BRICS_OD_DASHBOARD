@@ -79,6 +79,7 @@ export const SDG_INFO: Record<number, { title: string; color: string }> = {
   1: { title: 'No Poverty', color: '#E5243B' },
   2: { title: 'Zero Hunger', color: '#DDA63A' },
   3: { title: 'Good Health & Well-being', color: '#4C9F38' },
+  5: { title: 'Gender Equality', color: '#FF3A21' },
   6: { title: 'Clean Water & Sanitation', color: '#26BDE2' },
   7: { title: 'Affordable & Clean Energy', color: '#FCC30B' },
   8: { title: 'Decent Work & Economic Growth', color: '#A21942' },
@@ -98,9 +99,9 @@ export const SECTOR_COLORS: Record<Sector, string> = {
 }
 
 export const KPI_DATA: KPIData = {
-  totalProjects: 10,
-  startups: 10,
-  trlAbove6: 4,
+  totalProjects: 22,
+  startups: 22,
+  trlAbove6: 13,
   pilotStates: 5,
   sdgsCovered: 13,
   sectors: 3,

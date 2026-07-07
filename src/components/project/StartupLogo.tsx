@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import type { Sector } from '@/types/project'
 import { SECTOR_COLORS } from '@/types/project'
@@ -23,7 +23,7 @@ function getInitials(name: string): string {
 const SIZE_CLASSES = {
   sm: 'h-10 w-10 text-sm',
   md: 'h-14 w-14 text-base',
-  lg: 'h-16 w-auto max-w-[140px] text-xl sm:h-20 sm:max-w-[160px]',
+  lg: 'h-16 max-h-full w-auto max-w-[140px] sm:h-20 sm:max-w-[160px]',
 }
 
 export function StartupLogo({
@@ -37,13 +37,18 @@ export function StartupLogo({
   const color = SECTOR_COLORS[sector]
   const initials = getInitials(startupName)
 
+  useEffect(() => {
+    setImgError(false)
+  }, [logoUrl])
+
   if (logoUrl && !imgError) {
     return (
       <img
+        key={logoUrl}
         src={encodeURI(logoUrl)}
         alt={`${startupName} logo`}
         onError={() => setImgError(true)}
-        className={cn('object-contain', SIZE_CLASSES[size], className)}
+        className={cn('max-h-full max-w-full object-contain', SIZE_CLASSES[size], className)}
       />
     )
   }
