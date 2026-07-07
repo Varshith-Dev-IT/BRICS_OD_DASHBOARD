@@ -1,4 +1,4 @@
-import type { Project } from '@/types/project'
+import type { Project, StartupType } from '@/types/project'
 import detailedProjects from '@/data/projects.json'
 import additionalProjects from '@/data/projects-11-22.json'
 import { PROJECT_LOGOS } from '@/data/logos'
