@@ -3,7 +3,7 @@ export type Sector =
   | 'Transportation & Infrastructure'
   | 'Livelihood & Skilling'
 
-export type StartupType = 'Startup' | 'MSME' | 'Research Innovation'
+export type StartupType = 'ESS' | 'GSS' | 'Corporate'
 
 export interface PilotLocation {
   district: string

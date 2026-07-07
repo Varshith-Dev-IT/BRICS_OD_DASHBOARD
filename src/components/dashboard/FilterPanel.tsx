@@ -15,7 +15,7 @@ const SECTORS: Sector[] = [
   'Livelihood & Skilling',
 ]
 
-const STARTUP_TYPES: StartupType[] = ['Startup', 'MSME', 'Research Innovation']
+const STARTUP_TYPES: StartupType[] = ['ESS', 'GSS', 'Corporate']
 const TRL_LEVELS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 const SDG_LEVELS = Object.keys(SDG_INFO).map(Number)
 

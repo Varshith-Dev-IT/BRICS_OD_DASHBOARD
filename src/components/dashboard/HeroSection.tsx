@@ -35,18 +35,18 @@ function KPICard({ label, value, icon, delay, accent = 'from-navy-600 to-navy-80
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.5 }}
       whileHover={{ y: -2, transition: { duration: 0.2 } }}
-      className="glass-card rounded-lg p-2.5 shadow-glow sm:p-3"
+      className="glass-card rounded-xl p-4 shadow-glow sm:p-5"
     >
-      <div className="flex items-start justify-between gap-2">
+      <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <p className="text-[10px] font-semibold leading-tight text-white/90 sm:text-xs">
+          <p className="text-xs font-semibold leading-tight text-white/90 sm:text-sm">
             {label}
           </p>
-          <p className="mt-1 text-xl font-bold leading-none text-white sm:text-2xl">
+          <p className="mt-2 text-2xl font-bold leading-none text-white sm:text-3xl">
             <AnimatedCounter value={value} />
           </p>
         </div>
-        <div className={`shrink-0 rounded-md bg-gradient-to-br ${accent} p-1.5 shadow-md sm:p-2`}>
+        <div className={`shrink-0 rounded-lg bg-gradient-to-br ${accent} p-2 shadow-md sm:p-2.5`}>
           {icon}
         </div>
       </div>
@@ -55,16 +55,16 @@ function KPICard({ label, value, icon, delay, accent = 'from-navy-600 to-navy-80
 }
 
 const KPI_CONFIG = [
-  { label: 'Total Projects', key: 'totalProjects' as const, icon: <Layers className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />, accent: 'from-navy-400 to-navy-600' },
-  { label: 'TRL ≥ 6', key: 'trlAbove6' as const, icon: <Target className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />, accent: 'from-violet-400 to-violet-600' },
-  { label: 'Pilot States', key: 'pilotStates' as const, icon: <MapPin className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />, accent: 'from-emerald-400 to-emerald-600' },
-  { label: 'SDGs Covered', key: 'sdgsCovered' as const, icon: <Globe className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />, accent: 'from-cyan-400 to-cyan-600' },
-  { label: 'Sectors', key: 'sectors' as const, icon: <Building2 className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />, accent: 'from-rose-400 to-rose-600' },
+  { label: 'Total Projects', key: 'totalProjects' as const, icon: <Layers className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-navy-400 to-navy-600' },
+  { label: 'TRL ≥ 6', key: 'trlAbove6' as const, icon: <Target className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-violet-400 to-violet-600' },
+  { label: 'Pilot States', key: 'pilotStates' as const, icon: <MapPin className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-emerald-400 to-emerald-600' },
+  { label: 'SDGs Covered', key: 'sdgsCovered' as const, icon: <Globe className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-cyan-400 to-cyan-600' },
+  { label: 'Sectors', key: 'sectors' as const, icon: <Building2 className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-rose-400 to-rose-600' },
 ]
 
 export function HeroSection() {
   return (
-    <section className="gradient-hero relative overflow-hidden px-3 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+    <section className="gradient-hero relative overflow-hidden px-3 pt-8 pb-4 sm:px-6 sm:pt-12 sm:pb-6 lg:px-8 lg:pt-16 lg:pb-8">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute -left-20 top-10 h-72 w-72 rounded-full bg-saffron-500 blur-3xl" />
         <div className="absolute -right-20 bottom-10 h-96 w-96 rounded-full bg-emerald-500 blur-3xl" />
@@ -96,11 +96,11 @@ export function HeroSection() {
           </p>
         </motion.div>
 
-        <div className="mx-auto mt-6 flex max-w-5xl flex-wrap justify-center gap-2 sm:mt-8 sm:gap-2.5">
+        <div className="mx-auto mt-6 flex max-w-5xl flex-wrap justify-center gap-3 sm:mt-8 sm:gap-4">
           {KPI_CONFIG.map((kpi, i) => (
             <div
               key={kpi.key}
-              className="w-[calc(50%-0.25rem)] sm:w-[calc(33.333%-0.45rem)] lg:w-36 xl:w-40"
+              className="w-[calc(50%-0.375rem)] sm:w-[calc(33.333%-0.67rem)] lg:w-44 xl:w-48"
             >
               <KPICard
                 label={kpi.label}
