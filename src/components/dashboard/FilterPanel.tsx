@@ -94,7 +94,7 @@ export function FilterPanel({ filters, onChange, locations, resultCount }: Filte
 
       {/* Search always visible on mobile */}
       <div className="mb-4 md:hidden">
-        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-500">
+        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-900">
           Search
         </label>
         <div className="relative">
@@ -175,7 +175,7 @@ export function FilterPanel({ filters, onChange, locations, resultCount }: Filte
         />
 
         <div className="hidden md:block">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-500">
+          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-900">
             Search
           </label>
           <div className="relative">

@@ -166,70 +166,82 @@ export function ProjectDetail({ project, variant = 'accordion' }: ProjectDetailP
           </p>
         </section>
 
-        {/* TRL Visualization */}
-        <section>
-          <TRLIndicator trl={project.trl} />
-        </section>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Left Side: TRL and Map */}
+          <div className="space-y-6">
+            {/* TRL Visualization */}
+            <section>
+              <TRLIndicator trl={project.trl} />
+            </section>
 
-        {/* India Map */}
-        <section>
-          <SectionTitle>India Map — Pilot Deployment</SectionTitle>
-          <IndiaMap project={project} />
-        </section>
-
-        {/* Impact */}
-        <section>
-          <SectionTitle>Impact</SectionTitle>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl bg-emerald-50/80 p-3 sm:p-4">
-              <div className="mb-3 flex items-center gap-2">
-                <Leaf className="h-5 w-5 text-emerald-600" />
-                <h5 className="font-semibold text-emerald-800">Environmental Impact</h5>
-              </div>
-              <ul className="space-y-1.5">
-                {project.environmentalImpact.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-emerald-700">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-xl bg-blue-50/80 p-3 sm:p-4">
-              <div className="mb-3 flex items-center gap-2">
-                <Users className="h-5 w-5 text-blue-600" />
-                <h5 className="font-semibold text-blue-800">Social Impact</h5>
-              </div>
-              <ul className="space-y-1.5">
-                {project.socialImpact.map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-blue-700">
-                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* India Map */}
+            <section>
+              <SectionTitle>India Map — Pilot Deployment</SectionTitle>
+              <IndiaMap project={project} />
+            </section>
           </div>
-        </section>
 
+          {/* Right Side: Impact, SDGs, and Resources */}
+          <div className="space-y-6">
+            {/* Impact */}
+            <section>
+              <SectionTitle>Impact</SectionTitle>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-xl bg-emerald-50/80 p-3 sm:p-4">
+                  <div className="mb-3 flex items-center gap-2">
+                    <Leaf className="h-5 w-5 text-emerald-600" />
+                    <h5 className="font-semibold text-emerald-800">Environmental Impact</h5>
+                  </div>
+                  <ul className="space-y-1.5">
+                    {project.environmentalImpact.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm text-emerald-700">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-xl bg-blue-50/80 p-3 sm:p-4">
+                  <div className="mb-3 flex items-center gap-2">
+                    <Users className="h-5 w-5 text-blue-600" />
+                    <h5 className="font-semibold text-blue-800">Social Impact</h5>
+                  </div>
+                  <ul className="space-y-1.5">
+                    {project.socialImpact.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm text-blue-700">
+                        <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
 
-        {/* SDGs */}
-        <section>
-          <SectionTitle>SDGs</SectionTitle>
-          <SDGBadges sdgs={project.sdgs} size="md" />
-        </section>
+            {/* SDGs */}
+            <section>
+              <SectionTitle>SDGs</SectionTitle>
+              <SDGBadges sdgs={project.sdgs} size="md" />
+            </section>
 
-        {/* Resources */}
-        <section>
-          <SectionTitle>Resources</SectionTitle>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {project.resources
-              .filter((r) => r.type !== 'demo' && r.type !== 'image' && r.type !== 'document')
-              .map((resource) => (
-                <ResourceCard key={resource.title} {...resource} />
-              ))}
+            {/* Resources */}
+            <section>
+              <SectionTitle>Resources</SectionTitle>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {project.resources
+                  .filter((r) => r.type === 'website')
+                  .map((resource) => (
+                    <ResourceCard key={resource.title} {...resource} />
+                  ))}
+                <ResourceCard
+                  type="website"
+                  url="https://dronagiri.gov.in"
+                  title="Operation Dronagiri Page"
+                />
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
       </div>
   )
 

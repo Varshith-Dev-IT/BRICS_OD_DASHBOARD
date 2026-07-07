@@ -9,7 +9,7 @@ export function NativeSelect({ label, className, children, ...props }: NativeSel
   return (
     <div>
       {label && (
-        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-500">
+        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-900">
           {label}
         </label>
       )}

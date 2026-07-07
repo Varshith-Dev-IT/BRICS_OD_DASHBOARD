@@ -56,22 +56,22 @@ export function MultiSelectDropdown<T extends string | number = string>({
 
   return (
     <div ref={containerRef} className={cn('relative', className)}>
-      <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-500">
+      <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-900">
         {label}
       </label>
       <button
         type="button"
         onClick={() => setOpen(!open)}
         className={cn(
-          'flex h-10 w-full items-center justify-between rounded-lg border-0 bg-slate-100/70 px-3 text-sm transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-navy-500/20',
-          selected.length > 0 && 'bg-navy-50/80'
+          'flex h-10 w-full items-center justify-between rounded-lg border-0 bg-slate-100/70 px-3 text-sm transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-navy-500/20 text-slate-800',
+          selected.length > 0 && 'bg-navy-50/80 text-navy-800'
         )}
       >
-        <span className={cn('truncate', selected.length === 0 && 'text-slate-400')}>
+        <span className={cn('truncate', selected.length === 0 && 'text-slate-700')}>
           {displayText}
         </span>
         <ChevronDown
-          className={cn('h-4 w-4 shrink-0 text-slate-400 transition-transform', open && 'rotate-180')}
+          className={cn('h-4 w-4 shrink-0 text-slate-600 transition-transform', open && 'rotate-180')}
         />
       </button>
 
