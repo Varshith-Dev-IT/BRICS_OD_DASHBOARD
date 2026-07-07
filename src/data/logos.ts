@@ -1,4 +1,4 @@
-/** Maps project IDs to logo files in /public/ess_logos/ and /public/GSS/ */
+/** Maps project IDs to logo files in /public/ess_logos/ */
 export const PROJECT_LOGOS: Record<string, string> = {
   'proj-001': '/ess_logos/ESS_urjeevi_labs_logo.jpeg',
   'proj-002': '/ess_logos/Ess_weather_cast_solutions.jpeg',
@@ -9,16 +9,16 @@ export const PROJECT_LOGOS: Record<string, string> = {
   'proj-007': '/ess_logos/DHAAL V2-white.png',
   'proj-008': '/ess_logos/ESS_thazal.jpeg',
   'proj-009': '/ess_logos/ESS_terrastack.png',
-  'proj-010': '/GSS/GSS_terraquauav_logo.jpeg',
+  'proj-010': '/ess_logos/GSS_terraquauav_logo.jpeg',
   'proj-011': '/ess_logos/ESS_SrajanAI.jpeg',
-  'proj-012': '/GSS/GSS_scaNxt.jpg',
+  'proj-012': '/ess_logos/GSS_scaNxt.jpg',
   'proj-013': '/ess_logos/ESS_Qhills.jpeg',
   'proj-014': '/ess_logos/ESS_polygon_geospatial_logo.jpeg',
   'proj-015': '/ess_logos/ESS_Navariti Innovation.png',
-  'proj-016': '/GSS/GSS_krishi_mandi.png',
+  'proj-016': '/ess_logos/GSS_krishi_mandi.png',
   'proj-017': '/ess_logos/Logo_EELAB Carbon.png',
   'proj-018': '/ess_logos/ESS_kisan_rover.jpeg',
-  'proj-019': '/GSS/GSS_cultyvate_logo.jpeg',
+  'proj-019': '/ess_logos/GSS_cultyvate_logo.jpeg',
   'proj-020': '/ess_logos/ESS_cropgen_logo.jpeg',
   'proj-021': '/ess_logos/ESS_bhoomicam.png',
   'proj-022': '/ess_logos/ESS_addble.png',
