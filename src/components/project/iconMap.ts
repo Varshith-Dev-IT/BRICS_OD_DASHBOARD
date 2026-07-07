@@ -1,0 +1,52 @@
+import {
+  AlertTriangle,
+  BarChart3,
+  Battery,
+  Bell,
+  Briefcase,
+  Calendar,
+  CloudRain,
+  Droplets,
+  FileCheck,
+  Gauge,
+  GraduationCap,
+  Map,
+  MapPin,
+  Satellite,
+  Shield,
+  Sprout,
+  Thermometer,
+  TrendingUp,
+  Users,
+  Wrench,
+  Zap,
+  type LucideIcon,
+} from 'lucide-react'
+
+const ICON_MAP: Record<string, LucideIcon> = {
+  Battery,
+  Wrench,
+  BarChart3,
+  Zap,
+  CloudRain,
+  Thermometer,
+  Bell,
+  Sprout,
+  Map,
+  FileCheck,
+  Users,
+  Shield,
+  Satellite,
+  Droplets,
+  TrendingUp,
+  AlertTriangle,
+  Calendar,
+  Gauge,
+  MapPin,
+  Briefcase,
+  GraduationCap,
+}
+
+export function getFeatureIcon(iconName: string): LucideIcon {
+  return ICON_MAP[iconName] || Zap
+}

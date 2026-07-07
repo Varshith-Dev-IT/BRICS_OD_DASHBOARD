@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
+
+  --color-navy-50: #eef4ff;
+  --color-navy-100: #d9e6ff;
+  --color-navy-200: #bcd4ff;
+  --color-navy-300: #8eb8ff;
+  --color-navy-400: #5990ff;
+  --color-navy-500: #3366ff;
+  --color-navy-600: #1a44f5;
+  --color-navy-700: #0b3d91;
+  --color-navy-800: #0f3380;
+  --color-navy-900: #132f66;
+  --color-navy-950: #0a1a3d;
+
+  --color-saffron-400: #ff8c42;
+  --color-saffron-500: #ff6b00;
+  --color-saffron-600: #e85d00;
+
+  --color-emerald-500: #138808;
+  --color-emerald-600: #0f6f06;
+
+  --color-glass: rgba(255, 255, 255, 0.72);
+  --color-glass-border: rgba(255, 255, 255, 0.35);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply m-0 min-h-screen overflow-x-hidden bg-slate-50 text-slate-800 antialiased;
+    font-family: var(--font-sans);
+  }
+
+  #root {
+    @apply min-h-screen w-full;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: var(--color-glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--color-glass-border);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(
+      135deg,
+      #0a1a3d 0%,
+      #0b3d91 35%,
+      #132f66 65%,
+      #0f3380 100%
+    );
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, #ff6b00 0%, #ff8c42 50%, #138808 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #bcd4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-soft {
+    box-shadow:
+      0 4px 6px -1px rgba(11, 61, 145, 0.06),
+      0 10px 25px -5px rgba(11, 61, 145, 0.08);
+  }
+
+  .shadow-glow {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 8px 32px rgba(11, 61, 145, 0.15);
+  }
+}
+
+.leaflet-container {
+  font-family: var(--font-sans);
+  border-radius: 0.75rem;
+  z-index: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.5rem;
+}

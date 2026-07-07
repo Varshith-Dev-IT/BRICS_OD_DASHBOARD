@@ -1,0 +1,254 @@
+[
+  {
+    "id": "proj-001",
+    "startupName": "Urjeevi Labs",
+    "projectName": "AI-powered Intelligent Energy & Mobility Optimization Platform",
+    "sector": "Transportation & Infrastructure",
+    "startupType": "Startup",
+    "pilotLocation": {
+      "district": "Washim",
+      "state": "Maharashtra",
+      "lat": 20.1186,
+      "lng": 77.1334
+    },
+    "trl": 4,
+    "sdgs": [7, 9, 11, 12],
+    "shortDescription": "Optimizing battery performance and fleet efficiency through AI-driven energy analytics for electric mobility ecosystems.",
+    "technologies": ["AI", "ML", "Sensor Analytics", "Predictive Analytics", "Geospatial Intelligence", "IoT"],
+    "overview": "Urjeevi Labs develops an AI-powered platform that optimizes energy consumption and mobility operations for electric vehicle fleets and charging infrastructure in semi-urban and rural corridors.",
+    "problemStatement": "Electric mobility adoption in tier-2 and tier-3 regions faces challenges from unpredictable battery degradation, inefficient charging patterns, and lack of data-driven fleet management tools tailored to Indian road and climate conditions.",
+    "solution": "An integrated AI/ML platform that collects sensor and telematics data to predict battery health, optimize charging schedules, and provide real-time fleet analytics — enabling cost-effective and reliable EV operations.",
+    "targetUsers": ["Fleet Operators", "EV Charging Providers", "Transport Authorities", "Logistics Companies"],
+    "keyFeatures": [
+      { "icon": "Battery", "name": "Battery Optimization", "description": "AI models predict battery degradation and recommend optimal charging cycles to extend lifespan by 20–30%." },
+      { "icon": "Wrench", "name": "Predictive Maintenance", "description": "Early fault detection using sensor analytics reduces downtime and maintenance costs." },
+      { "icon": "BarChart3", "name": "Fleet Analytics", "description": "Real-time dashboards for route efficiency, energy consumption, and operational KPIs." },
+      { "icon": "Zap", "name": "Charging Optimization", "description": "Smart scheduling of charging sessions based on grid load, tariffs, and fleet demand." }
+    ],
+    "valueProposition": "Reduces total cost of EV ownership while accelerating clean mobility adoption in underserved geographies through indigenous AI solutions.",
+    "environmentalImpact": ["Carbon Reduction", "Clean Energy Adoption", "Reduced Emissions"],
+    "socialImpact": ["Employment Generation", "Digital Inclusion", "Affordable Mobility"],
+    "metrics": [
+      { "label": "Battery Improvement", "value": "20–30%", "type": "progress", "progress": 75 },
+      { "label": "Fleet Efficiency Gain", "value": "15%", "type": "progress", "progress": 60 },
+      { "label": "Active Pilots", "value": "3", "type": "stat" }
+    ],
+    "resources": [
+      { "type": "website", "url": "https://urjeevilabs.in", "title": "Company Website" },
+      { "type": "demo", "url": "https://demo.urjeevilabs.in", "title": "Platform Demo" },
+      { "type": "document", "url": "#", "title": "Technical Whitepaper" }
+    ],
+    "expansionPlan": "Scale to 8 states across Western and Central India with municipal EV fleet partnerships by 2027.",
+    "currentLocation": "Washim, Maharashtra — EV fleet pilot with local transport cooperative"
+  },
+  {
+    "id": "proj-002",
+    "startupName": "Weathercast Solutions",
+    "projectName": "Farm-Level Weather Monitoring & Forecasting using Physics, Data and AI/ML",
+    "sector": "Agriculture",
+    "startupType": "Startup",
+    "pilotLocation": {
+      "district": "Washim",
+      "state": "Maharashtra",
+      "lat": 20.1186,
+      "lng": 77.1334
+    },
+    "trl": 8,
+    "sdgs": [2, 12, 13, 17],
+    "shortDescription": "Hyperlocal farm-level weather forecasting combining physics-based models with AI/ML for precision agriculture decisions.",
+    "technologies": ["AI", "ML", "Satellite Imagery", "IoT", "GIS", "NWP Models"],
+    "overview": "Weathercast Solutions delivers hyperlocal weather intelligence at farm-plot level, enabling farmers to make timely decisions on sowing, irrigation, and harvest.",
+    "problemStatement": "Generic district-level weather forecasts fail to capture micro-climatic variations critical for farm-level decisions, leading to crop losses and inefficient resource use.",
+    "solution": "A hybrid forecasting system combining numerical weather prediction, IoT sensor networks, and ML models to deliver plot-level forecasts with 95% accuracy.",
+    "targetUsers": ["Smallholder Farmers", "Agri-Cooperatives", "FPOs", "Agri-Input Companies"],
+    "keyFeatures": [
+      { "icon": "CloudRain", "name": "Hyperlocal Forecasting", "description": "Plot-level weather predictions updated every 3 hours with 7-day outlook." },
+      { "icon": "Thermometer", "name": "Micro-Climate Monitoring", "description": "IoT sensor network captures field-level temperature, humidity, and rainfall." },
+      { "icon": "Bell", "name": "Alert System", "description": "SMS and app-based alerts for frost, heat stress, and rainfall events." },
+      { "icon": "Sprout", "name": "Crop Advisory", "description": "Crop-specific recommendations based on weather forecasts and growth stage." }
+    ],
+    "valueProposition": "Empowers farmers with institutional-grade weather intelligence previously available only to large agribusinesses.",
+    "environmentalImpact": ["Water Conservation", "Climate Resilience", "Reduced Chemical Use"],
+    "socialImpact": ["Farmer Empowerment", "Food Security", "Rural Livelihoods"],
+    "metrics": [
+      { "label": "Forecast Accuracy", "value": "95%", "type": "progress", "progress": 95 },
+      { "label": "Farmers Served", "value": "12,000+", "type": "stat" },
+      { "label": "Sensor Network", "value": "450 nodes", "type": "stat" }
+    ],
+    "resources": [
+      { "type": "website", "url": "https://weathercast.in", "title": "Company Website" },
+      { "type": "demo", "url": "https://demo.weathercast.in", "title": "Forecast Demo" },
+      { "type": "document", "url": "#", "title": "Validation Report" }
+    ],
+    "expansionPlan": "Expand to Vidarbha and Marathwada regions covering 50,000 farmers by 2026.",
+    "currentLocation": "Washim, Maharashtra — 450 IoT nodes across 120 villages"
+  },
+  {
+    "id": "proj-003",
+    "startupName": "Oxbow Intellect Pvt Ltd",
+    "projectName": "Oxland Agri – Future-Ready Platform for Agricultural Land Acquisition & Management",
+    "sector": "Agriculture",
+    "startupType": "MSME",
+    "pilotLocation": {
+      "district": "Sonipat",
+      "state": "Haryana",
+      "lat": 28.9931,
+      "lng": 77.0151
+    },
+    "trl": 7,
+    "sdgs": [9, 15],
+    "shortDescription": "Digital platform for transparent agricultural land acquisition, mapping, and management using geospatial intelligence.",
+    "technologies": ["GIS", "GeoAI", "Satellite Imagery", "PostGIS", "React", "Drone Data"],
+    "overview": "Oxland Agri digitizes the entire agricultural land lifecycle — from acquisition and due to mapping Flutter app, and from mapping to compliance — for agri-infrastructure projects.",
+    "problemStatement": "Agricultural land acquisition for infrastructure and agri-projects lacks transparency, accurate geospatial records, and efficient dispute resolution mechanisms.",
+    "solution": "A comprehensive geospatial platform integrating satellite imagery, drone surveys, and blockchain-verified land records for end-to-end land management.",
+    "targetUsers": ["Land Developers", "Government Agencies", "Farmers", "Legal Teams"],
+    "keyFeatures": [
+      { "icon": "Map", "name": "Land Mapping", "description": "High-resolution parcel mapping using satellite and drone imagery." },
+      { "icon": "FileCheck", "name": "Compliance Tracking", "description": "Automated verification of land titles and regulatory compliance." },
+      { "icon": "Users", "name": "Stakeholder Portal", "description": "Multi-party collaboration platform for landowners, buyers, and authorities." },
+      { "icon": "Shield", "name": "Dispute Resolution", "description": "Digital evidence repository for transparent dispute management." }
+    ],
+    "valueProposition": "Brings transparency and efficiency to agricultural land transactions while protecting farmer interests through verified geospatial records.",
+    "environmentalImpact": ["Land Use Optimization", "Sustainable Agriculture"],
+    "socialImpact": ["Farmer Empowerment", "Transparent Governance", "Employment Generation"],
+    "metrics": [
+      { "label": "Parcels Mapped", "value": "8,500+", "type": "stat" },
+      { "label": "Processing Time Reduction", "value": "60%", "type": "progress", "progress": 60 },
+      { "label": "Accuracy", "value": "99.2%", "type": "progress", "progress": 99 }
+    ],
+    "resources": [
+      { "type": "website", "url": "https://oxbowintellect.com", "title": "Company Website" },
+      { "type": "demo", "url": "https://demo.oxland.in", "title": "Platform Demo" },
+      { "type": "document", "url": "#", "title": "Case Study" }
+    ],
+    "expansionPlan": "Extend to Punjab, UP, and Rajasthan for agri-corridor development projects.",
+    "currentLocation": "Sonipat, Haryana — 8,500 parcels digitized"
+  },
+  {
+    "id": "proj-004",
+    "startupName": "SparkyAI Pvt Ltd",
+    "projectName": "AI-Powered Satellite Imagery Analytics",
+    "sector": "Agriculture",
+    "startupType": "Startup",
+    "pilotLocation": {
+      "district": "Kamrup",
+      "state": "Assam",
+      "lat": 26.1809,
+      "lng": 91.7539
+    },
+    "trl": 5,
+    "sdgs": [2, 6, 12, 13],
+    "shortDescription": "Satellite imagery analytics platform delivering crop health insights and yield predictions for Northeast India.",
+    "technologies": ["AI", "ML", "Satellite Imagery", "SAR", "GIS", "GeoAI", "NAVIC"],
+    "overview": "SparkyAI leverages multi-spectral satellite imagery and SAR data to provide crop monitoring, yield estimation, and water stress detection for farmers in Assam and the Northeast.",
+    "problemStatement": "Northeast India's diverse topography and cloud cover make ground-based crop monitoring expensive and unreliable, limiting access to precision agriculture tools.",
+    "solution": "AI models trained on ISRO satellite data and SAR imagery provide cloud-penetrating crop analytics accessible via mobile app in local languages.",
+    "targetUsers": ["Tea Estate Managers", "Rice Farmers", "Government Extension Workers", "Agri-Insurers"],
+    "keyFeatures": [
+      { "icon": "Satellite", "name": "Crop Health Monitoring", "description": "NDVI-based crop health maps updated every 5 days via satellite pass." },
+      { "icon": "Droplets", "name": "Water Stress Detection", "description": "Identifies irrigation needs using thermal and SAR fusion analytics." },
+      { "icon": "TrendingUp", "name": "Yield Prediction", "description": "ML models estimate yield 45 days before harvest with regional calibration." },
+      { "icon": "AlertTriangle", "name": "Pest & Disease Alerts", "description": "Anomaly detection flags potential pest outbreaks from spectral signatures." }
+    ],
+    "valueProposition": "Democratizes satellite-based crop intelligence for smallholder farmers in cloud-prone regions using indigenous AI on ISRO data.",
+    "environmentalImpact": ["Water Conservation", "Climate Resilience", "Sustainable Farming"],
+    "socialImpact": ["Farmer Empowerment", "Farmer Income Increase", "Digital Inclusion"],
+    "metrics": [
+      { "label": "Farmer Income Increase", "value": "18–25%", "type": "progress", "progress": 72 },
+      { "label": "Area Monitored", "value": "45,000 ha", "type": "stat" },
+      { "label": "Model Accuracy", "value": "87%", "type": "progress", "progress": 87 }
+    ],
+    "resources": [
+      { "type": "website", "url": "https://sparkyai.in", "title": "Company Website" },
+      { "type": "demo", "url": "https://demo.sparkyai.in", "title": "Analytics Demo" },
+      { "type": "image", "url": "#", "title": "Sample Crop Maps" }
+    ],
+    "expansionPlan": "Cover entire Brahmaputra valley and expand to Meghalaya and Nagaland by 2027.",
+    "currentLocation": "Kamrup, Assam — 45,000 hectares under monitoring"
+  },
+  {
+    "id": "proj-005",
+    "startupName": "Encode Nature",
+    "projectName": "Intelligent Irrigation Support System",
+    "sector": "Agriculture",
+    "startupType": "Research Innovation",
+    "pilotLocation": {
+      "district": "Vizianagaram",
+      "state": "Andhra Pradesh",
+      "lat": 18.1067,
+      "lng": 83.3956
+    },
+    "trl": 3,
+    "sdgs": [2, 6, 12, 13],
+    "shortDescription": "AI-driven irrigation scheduling system using soil moisture estimation and weather data for water-efficient farming.",
+    "technologies": ["AI", "ML", "IoT", "GIS", "Satellite Imagery", "Soil Sensors"],
+    "overview": "Encode Nature's Intelligent Irrigation Support System optimizes water usage through real-time soil moisture monitoring and AI-based irrigation scheduling.",
+    "problemStatement": "Inefficient irrigation practices in drought-prone regions of Andhra Pradesh lead to 40% water wastage and reduced crop yields due to over/under-watering.",
+    "solution": "IoT soil moisture sensors combined with ML models and satellite-derived evapotranspiration data deliver precise irrigation recommendations via farmer-friendly mobile interface.",
+    "targetUsers": ["Smallholder Farmers", "Irrigation Cooperatives", "Water Management Boards"],
+    "keyFeatures": [
+      { "icon": "Droplets", "name": "Soil Moisture Estimation", "description": "Multi-depth soil moisture sensing with ML calibration for local soil types." },
+      { "icon": "Calendar", "name": "Irrigation Scheduling", "description": "AI-optimized irrigation windows based on crop stage and weather forecast." },
+      { "icon": "Gauge", "name": "Water Usage Tracking", "description": "Real-time monitoring of water consumption per plot with savings analytics." },
+      { "icon": "Sprout", "name": "Crop Advisory", "description": "Integrated crop management tips aligned with irrigation schedules." }
+    ],
+    "valueProposition": "Reduces water consumption by up to 35% while maintaining or improving yields through precision irrigation intelligence.",
+    "environmentalImpact": ["Water Conservation", "Groundwater Protection", "Climate Resilience"],
+    "socialImpact": ["Farmer Empowerment", "Sustainable Livelihoods"],
+    "metrics": [
+      { "label": "Model Accuracy (R²)", "value": "0.63", "type": "progress", "progress": 63 },
+      { "label": "RMSE", "value": "30.8", "type": "stat" },
+      { "label": "Water Savings", "value": "35%", "type": "progress", "progress": 35 }
+    ],
+    "resources": [
+      { "type": "website", "url": "https://encodenature.in", "title": "Research Portal" },
+      { "type": "document", "url": "#", "title": "Research Paper" },
+      { "type": "demo", "url": "https://demo.encodenature.in", "title": "System Demo" }
+    ],
+    "expansionPlan": "Validate across 3 agro-climatic zones in AP and Telangana before national rollout.",
+    "currentLocation": "Vizianagaram, Andhra Pradesh — 200 plot pilot"
+  },
+  {
+    "id": "proj-006",
+    "startupName": "GeoInfy",
+    "projectName": "Geo-Location Based Skill Census and Job Matching Platform for Rural India",
+    "sector": "Livelihood & Skilling",
+    "startupType": "Startup",
+    "pilotLocation": {
+      "district": "Varanasi",
+      "state": "Uttar Pradesh",
+      "lat": 25.3176,
+      "lng": 82.9739
+    },
+    "trl": 3,
+    "sdgs": [1, 8, 10],
+    "shortDescription": "Geospatial skill census platform connecting rural talent with location-based employment opportunities.",
+    "technologies": ["GIS", "GeoAI", "React", "PostGIS", "Mobile GIS", "NAVIC"],
+    "overview": "GeoInfy maps rural skills geospatially and matches workers with nearby employment opportunities, bridging the rural-urban skills gap.",
+    "problemStatement": "Rural India lacks structured skill mapping and location-aware job matching, resulting in migration, underemployment, and untapped local talent pools.",
+    "solution": "A geo-tagged skill census platform that profiles worker competencies by location and connects them with employers through intelligent job matching algorithms.",
+    "targetUsers": ["Rural Workers", "MSME Employers", "Skill Development Agencies", "Panchayats"],
+    "keyFeatures": [
+      { "icon": "MapPin", "name": "Geo-tagged Skill Census", "description": "Village-level skill mapping with GPS-verified worker profiles." },
+      { "icon": "Briefcase", "name": "Location Based Job Matching", "description": "AI matching of skills to nearby employment within configurable radius." },
+      { "icon": "GraduationCap", "name": "Skill Gap Analysis", "description": "Identifies training needs based on local industry demand patterns." },
+      { "icon": "Users", "name": "Community Dashboards", "description": "Panchayat-level dashboards showing skill inventory and placement rates." }
+    ],
+    "valueProposition": "Creates local employment ecosystems by making invisible rural skills visible and matchable to nearby economic opportunities.",
+    "environmentalImpact": ["Reduced Migration Pressure"],
+    "socialImpact": ["Employment Generation", "Digital Inclusion", "Reduced Inequalities", "Women Empowerment"],
+    "metrics": [
+      { "label": "Workers Profiled", "value": "15,000+", "type": "stat" },
+      { "label": "Job Placements", "value": "2,400", "type": "stat" },
+      { "label": "Match Accuracy", "value": "78%", "type": "progress", "progress": 78 }
+    ],
+    "resources": [
+      { "type": "website", "url": "https://geoinfy.in", "title": "Platform Website" },
+      { "type": "demo", "url": "https://demo.geoinfy.in", "title": "Platform Demo" },
+      { "type": "document", "url": "#", "title": "Impact Report" }
+    ],
+    "expansionPlan": "Replicate model across 50 districts in UP, Bihar, and Jharkhand under Skill India mission.",
+    "currentLocation": "Varanasi, Uttar Pradesh — 120 villages covered"
+  }
+]
