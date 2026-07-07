@@ -5,22 +5,9 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ProjectDetail } from '@/components/project/ProjectDetail'
-import { SDGBadges } from '@/components/project/SDGBadges'
 import { StartupLogo } from '@/components/project/StartupLogo'
 import { projects } from '@/data'
-import { SECTOR_COLORS } from '@/types/project'
 import { cn } from '@/lib/utils'
-
-function getSectorBadgeVariant(sector: (typeof projects)[0]['sector']) {
-  switch (sector) {
-    case 'Agriculture':
-      return 'agriculture' as const
-    case 'Transportation & Infrastructure':
-      return 'transport' as const
-    case 'Livelihood & Skilling':
-      return 'livelihood' as const
-  }
-}
 
 export function ProjectDetailPage() {
   const { id } = useParams<{ id: string }>()
@@ -45,8 +32,6 @@ export function ProjectDetailPage() {
       </div>
     )
   }
-
-  const sectorColor = SECTOR_COLORS[project.sector]
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f7f4ef' }}>

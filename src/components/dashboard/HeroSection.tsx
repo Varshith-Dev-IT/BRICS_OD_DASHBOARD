@@ -5,7 +5,6 @@ import {
   Globe,
   Layers,
   MapPin,
-  Rocket,
   Target,
 } from 'lucide-react'
 import { KPI_DATA } from '@/types/project'
@@ -35,17 +34,19 @@ function KPICard({ label, value, icon, delay, accent = 'from-navy-600 to-navy-80
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.5 }}
-      whileHover={{ y: -4, transition: { duration: 0.2 } }}
-      className="glass-card rounded-lg p-3 shadow-glow sm:rounded-xl sm:p-5"
+      whileHover={{ y: -2, transition: { duration: 0.2 } }}
+      className="glass-card rounded-lg p-2.5 shadow-glow sm:p-3"
     >
       <div className="flex items-start justify-between gap-2">
-        <div className="min-w-0">
-          <p className="truncate text-[11px] font-medium text-white/70 sm:text-sm">{label}</p>
-          <p className="mt-1 text-2xl font-bold text-white sm:mt-2 sm:text-3xl">
+        <div className="min-w-0 flex-1">
+          <p className="text-[10px] font-semibold leading-tight text-white/90 sm:text-xs">
+            {label}
+          </p>
+          <p className="mt-1 text-xl font-bold leading-none text-white sm:text-2xl">
             <AnimatedCounter value={value} />
           </p>
         </div>
-        <div className={`shrink-0 rounded-lg bg-gradient-to-br ${accent} p-2 shadow-lg sm:p-2.5`}>
+        <div className={`shrink-0 rounded-md bg-gradient-to-br ${accent} p-1.5 shadow-md sm:p-2`}>
           {icon}
         </div>
       </div>
@@ -54,12 +55,11 @@ function KPICard({ label, value, icon, delay, accent = 'from-navy-600 to-navy-80
 }
 
 const KPI_CONFIG = [
-  { label: 'Total Projects', key: 'totalProjects' as const, icon: <Layers className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-navy-400 to-navy-600' },
-  { label: 'Startups', key: 'startups' as const, icon: <Rocket className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-saffron-400 to-saffron-600' },
-  { label: 'TRL ≥ 6', key: 'trlAbove6' as const, icon: <Target className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-violet-400 to-violet-600' },
-  { label: 'Pilot States', key: 'pilotStates' as const, icon: <MapPin className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-emerald-400 to-emerald-600' },
-  { label: 'SDGs Covered', key: 'sdgsCovered' as const, icon: <Globe className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-cyan-400 to-cyan-600' },
-  { label: 'Sectors', key: 'sectors' as const, icon: <Building2 className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-rose-400 to-rose-600' },
+  { label: 'Total Projects', key: 'totalProjects' as const, icon: <Layers className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />, accent: 'from-navy-400 to-navy-600' },
+  { label: 'TRL ≥ 6', key: 'trlAbove6' as const, icon: <Target className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />, accent: 'from-violet-400 to-violet-600' },
+  { label: 'Pilot States', key: 'pilotStates' as const, icon: <MapPin className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />, accent: 'from-emerald-400 to-emerald-600' },
+  { label: 'SDGs Covered', key: 'sdgsCovered' as const, icon: <Globe className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />, accent: 'from-cyan-400 to-cyan-600' },
+  { label: 'Sectors', key: 'sectors' as const, icon: <Building2 className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" />, accent: 'from-rose-400 to-rose-600' },
 ]
 
 export function HeroSection() {
@@ -79,8 +79,7 @@ export function HeroSection() {
         >
           <div className="mb-4 inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] text-white/80 backdrop-blur-sm sm:px-4 sm:text-sm">
             <span className="h-2 w-2 shrink-0 rounded-full bg-saffron-500 animate-pulse" />
-            <span className="sm:inline">Government Innovation Mission • </span>
-            <span>Startup India • ISRO Inspired</span>
+            <span className="sm:inline">Government Innovation Mission</span>
           </div>
 
           <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
@@ -97,16 +96,20 @@ export function HeroSection() {
           </p>
         </motion.div>
 
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+        <div className="mx-auto mt-6 flex max-w-5xl flex-wrap justify-center gap-2 sm:mt-8 sm:gap-2.5">
           {KPI_CONFIG.map((kpi, i) => (
-            <KPICard
+            <div
               key={kpi.key}
-              label={kpi.label}
-              value={KPI_DATA[kpi.key]}
-              icon={kpi.icon}
-              delay={0.2 + i * 0.1}
-              accent={kpi.accent}
-            />
+              className="w-[calc(50%-0.25rem)] sm:w-[calc(33.333%-0.45rem)] lg:w-36 xl:w-40"
+            >
+              <KPICard
+                label={kpi.label}
+                value={KPI_DATA[kpi.key]}
+                icon={kpi.icon}
+                delay={0.2 + i * 0.1}
+                accent={kpi.accent}
+              />
+            </div>
           ))}
         </div>
       </div>

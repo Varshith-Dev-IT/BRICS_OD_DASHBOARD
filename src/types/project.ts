@@ -29,6 +29,7 @@ export interface ProjectResource {
   type: 'website' | 'demo' | 'image' | 'document'
   url: string
   title: string
+  comingSoon?: boolean
 }
 
 export interface Project {

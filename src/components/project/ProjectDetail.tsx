@@ -31,7 +31,17 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   )
 }
 
-function ResourceCard({ type, url, title }: { type: string; url: string; title: string }) {
+function ResourceCard({
+  type,
+  url,
+  title,
+  comingSoon,
+}: {
+  type: string
+  url: string
+  title: string
+  comingSoon?: boolean
+}) {
   const icons = {
     website: Globe,
     demo: Play,
@@ -39,6 +49,20 @@ function ResourceCard({ type, url, title }: { type: string; url: string; title: 
     document: FileText,
   }
   const Icon = icons[type as keyof typeof icons] || Globe
+
+  if (comingSoon) {
+    return (
+      <div className="flex items-center gap-3 rounded-lg border border-dashed border-slate-200 bg-slate-50/80 p-3">
+        <div className="rounded-lg bg-slate-100 p-2">
+          <Icon className="h-4 w-4 text-slate-400" />
+        </div>
+        <div className="flex-1">
+          <p className="text-sm font-medium text-slate-600">{title}</p>
+          <p className="text-xs text-slate-400">Will update soon</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <a
@@ -233,18 +257,13 @@ export function ProjectDetail({ project, variant = 'accordion' }: ProjectDetailP
 
             {/* Resources */}
             <section>
-              <SectionTitle>Resources</SectionTitle>
+              <SectionTitle>Resources & Links</SectionTitle>
               <div className="grid gap-3 sm:grid-cols-2">
                 {project.resources
                   .filter((r) => r.type === 'website')
                   .map((resource) => (
                     <ResourceCard key={resource.title} {...resource} />
                   ))}
-                <ResourceCard
-                  type="website"
-                  url="https://dronagiri.gov.in"
-                  title="Operation Dronagiri Page"
-                />
               </div>
             </section>
           </div>
