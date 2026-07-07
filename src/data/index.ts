@@ -8,7 +8,6 @@ function getStartupType(projectId: string, originalType: string): StartupType {
   const logo = PROJECT_LOGOS[projectId] || ''
   if (logo.includes('GSS_')) return 'GSS'
   if (logo.includes('ESS_') || logo.includes('Ess_')) return 'ESS'
-  if (projectId === 'proj-017') return 'Corporate'
   if (originalType === 'Research Innovation') return 'Corporate'
   if (originalType === 'MSME') return 'GSS'
   return 'ESS'

@@ -16,7 +16,7 @@ export const PROJECT_LOGOS: Record<string, string> = {
   'proj-014': '/ess_logos/ESS_polygon_geospatial_logo.jpeg',
   'proj-015': '/ess_logos/ESS_Navariti Innovation.png',
   'proj-016': '/ess_logos/GSS_krishi_mandi.png',
-  'proj-017': '/ess_logos/Logo_EELAB Carbon.png',
+  'proj-017': '/ess_logos/ESS_Logo_EELAB Carbon.png',
   'proj-018': '/ess_logos/ESS_kisan_rover.jpeg',
   'proj-019': '/ess_logos/GSS_cultyvate_logo.jpeg',
   'proj-020': '/ess_logos/ESS_cropgen_logo.jpeg',
