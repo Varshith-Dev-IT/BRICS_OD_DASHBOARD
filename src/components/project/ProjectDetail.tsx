@@ -212,28 +212,6 @@ export function ProjectDetail({ project, variant = 'accordion' }: ProjectDetailP
           </div>
         </section>
 
-        {/* Project Metrics */}
-        <section>
-          <SectionTitle>Project Metrics</SectionTitle>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {project.metrics.map((metric) => (
-              <div key={metric.label} className="rounded-xl bg-white p-4 shadow-sm">
-                <p className="text-xs text-slate-500">{metric.label}</p>
-                <p className="mt-1 text-xl font-bold text-navy-800">{metric.value}</p>
-                {metric.type === 'progress' && metric.progress !== undefined && (
-                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
-                    <motion.div
-                      className="h-full rounded-full bg-gradient-to-r from-navy-500 to-saffron-500"
-                      initial={{ width: 0 }}
-                      animate={{ width: `${metric.progress}%` }}
-                      transition={{ duration: 1, delay: 0.2 }}
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* SDGs */}
         <section>
@@ -245,9 +223,11 @@ export function ProjectDetail({ project, variant = 'accordion' }: ProjectDetailP
         <section>
           <SectionTitle>Resources</SectionTitle>
           <div className="grid gap-3 sm:grid-cols-2">
-            {project.resources.map((resource) => (
-              <ResourceCard key={resource.title} {...resource} />
-            ))}
+            {project.resources
+              .filter((r) => r.type !== 'demo' && r.type !== 'image' && r.type !== 'document')
+              .map((resource) => (
+                <ResourceCard key={resource.title} {...resource} />
+              ))}
           </div>
         </section>
       </div>

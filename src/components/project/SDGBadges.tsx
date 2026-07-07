@@ -1,9 +1,3 @@
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
 import { SDG_INFO } from '@/types/project'
 
 interface SDGBadgesProps {
@@ -12,32 +6,24 @@ interface SDGBadgesProps {
 }
 
 export function SDGBadges({ sdgs, size = 'sm' }: SDGBadgesProps) {
-  const sizeClasses = size === 'sm' ? 'h-7 w-7 text-[10px]' : 'h-9 w-9 text-xs'
+  const paddingClasses = size === 'sm' ? 'px-2 py-1 text-xs' : 'px-3 py-1.5 text-xs sm:text-sm'
 
   return (
-    <TooltipProvider delayDuration={100}>
-      <div className="flex flex-wrap gap-1.5">
-        {sdgs.map((sdg) => {
-          const info = SDG_INFO[sdg]
-          if (!info) return null
+    <div className="flex flex-wrap gap-2">
+      {sdgs.map((sdg) => {
+        const info = SDG_INFO[sdg]
+        if (!info) return null
 
-          return (
-            <Tooltip key={sdg}>
-              <TooltipTrigger asChild>
-                <span
-                  className={`inline-flex ${sizeClasses} cursor-default items-center justify-center rounded-md font-bold text-white shadow-sm transition-transform hover:scale-110`}
-                  style={{ backgroundColor: info.color }}
-                >
-                  {sdg}
-                </span>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>SDG {sdg}: {info.title}</p>
-              </TooltipContent>
-            </Tooltip>
-          )
-        })}
-      </div>
-    </TooltipProvider>
+        return (
+          <span
+            key={sdg}
+            className={`inline-flex items-center rounded-lg bg-slate-200/60 border border-slate-300/50 font-medium text-slate-700 shadow-sm ${paddingClasses}`}
+          >
+            <span className="font-bold text-slate-900 mr-1.5">SDG {sdg}:</span>
+            {info.title}
+          </span>
+        )
+      })}
+    </div>
   )
 }

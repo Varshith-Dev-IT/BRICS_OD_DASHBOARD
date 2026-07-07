@@ -34,10 +34,10 @@ export function Dashboard() {
       <div
         className="sticky top-0 z-50 w-full"
         style={{
-          backgroundColor: 'rgba(236, 232, 225, 0.97)',
-          borderBottom: '2px solid #d6cfc4',
+          backgroundColor: 'rgba(244, 241, 237, 0.97)',
+          borderBottom: '1px solid #e2ddd7',
           backdropFilter: 'blur(12px)',
-          boxShadow: '0 4px 16px rgba(0,0,0,0.07)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
         }}
       >
         <div className="mx-auto max-w-7xl px-3 py-4 sm:px-6 sm:py-5 lg:px-8">
