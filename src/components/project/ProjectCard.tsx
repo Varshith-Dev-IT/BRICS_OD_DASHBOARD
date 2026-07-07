@@ -34,7 +34,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.4 }}
     >
-      <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 sm:hover:-translate-y-1 sm:hover:shadow-glow">
+      <Card className="flex h-full flex-col overflow-hidden transition-all duration-300">
         {/* Logo area */}
         <div className="flex h-24 shrink-0 items-center justify-center border-b border-slate-100 bg-white px-4 sm:h-28">
           <StartupLogo
@@ -47,7 +47,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
         <CardContent className="flex flex-1 flex-col p-4 sm:p-5">
           <div className="mb-2 flex items-start justify-between gap-2">
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 sm:text-xs">
+            <p className="line-clamp-2 min-w-0 flex-1 break-words text-[11px] font-semibold uppercase tracking-wider text-slate-400 sm:text-xs">
               {project.startupName}
             </p>
             <Badge variant="trl" className="shrink-0 text-[10px] sm:text-xs">
@@ -55,7 +55,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </Badge>
           </div>
 
-          <h3 className="text-sm font-bold leading-snug text-slate-900 sm:text-base">
+          <h3 className="line-clamp-2 min-h-[2.5rem] text-sm font-bold leading-snug text-slate-900 sm:min-h-[3rem] sm:text-base">
             {project.projectName}
           </h3>
 
@@ -74,9 +74,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </span>
           </div>
 
-          <p className="mt-3 line-clamp-2 flex-1 text-sm leading-relaxed text-slate-600">
-            {project.shortDescription}
-          </p>
+          <div className="flex-1">
+            <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-600">
+              {project.shortDescription}
+            </p>
+          </div>
 
           <Button asChild className="mt-4 h-11 w-full shrink-0 sm:mt-5 sm:h-10">
             <Link to={`/project/${project.id}`}>

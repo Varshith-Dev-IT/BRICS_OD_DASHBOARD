@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
 import {
   ExternalLink,
   FileText,
@@ -74,9 +75,15 @@ export function ProjectDetail({ project, variant = 'accordion' }: ProjectDetailP
               { label: 'Pilot District', value: `${project.pilotLocation.district}, ${project.pilotLocation.state}` },
               { label: 'TRL', value: `TRL ${project.trl}` },
               { label: 'Current Location', value: project.currentLocation },
-              { label: 'Expansion Plan', value: project.expansionPlan },
+              { label: 'Expansion Plan', value: project.expansionPlan, fullWidth: true },
             ].map((item) => (
-              <div key={item.label} className="rounded-lg bg-white p-3 shadow-sm">
+              <div
+                key={item.label}
+                className={cn(
+                  'rounded-lg bg-white p-3 shadow-sm',
+                  item.fullWidth && 'sm:col-span-2 lg:col-span-3'
+                )}
+              >
                 <p className="text-xs text-slate-500">{item.label}</p>
                 <p className="mt-0.5 text-sm font-medium text-slate-800">{item.value}</p>
               </div>
@@ -167,22 +174,22 @@ export function ProjectDetail({ project, variant = 'accordion' }: ProjectDetailP
         </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Side: TRL and Map */}
+          {/* Left Side: Map */}
+          <div className="flex h-full flex-col">
+            {/* India Map */}
+            <section className="flex flex-1 flex-col">
+              <SectionTitle>India Map — Pilot Deployment</SectionTitle>
+              <IndiaMap project={project} />
+            </section>
+          </div>
+
+          {/* Right Side: TRL, Impact, SDGs, and Resources */}
           <div className="space-y-6">
             {/* TRL Visualization */}
             <section>
               <TRLIndicator trl={project.trl} />
             </section>
 
-            {/* India Map */}
-            <section>
-              <SectionTitle>India Map — Pilot Deployment</SectionTitle>
-              <IndiaMap project={project} />
-            </section>
-          </div>
-
-          {/* Right Side: Impact, SDGs, and Resources */}
-          <div className="space-y-6">
             {/* Impact */}
             <section>
               <SectionTitle>Impact</SectionTitle>

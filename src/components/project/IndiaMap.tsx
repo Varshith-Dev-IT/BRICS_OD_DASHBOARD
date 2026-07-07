@@ -27,7 +27,7 @@ export function IndiaMap({ project, className }: IndiaMapProps) {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        'h-[200px] overflow-hidden rounded-xl shadow-soft sm:h-[260px] lg:h-[280px]',
+        'min-h-[300px] w-full flex-1 overflow-hidden rounded-xl shadow-soft sm:min-h-[350px] lg:min-h-[400px]',
         className
       )}
     >
@@ -50,13 +50,13 @@ export function IndiaMap({ project, className }: IndiaMapProps) {
             },
           }}
         >
-          <Popup>
-            <div className="text-sm">
-              <p className="font-bold text-navy-800">{project.projectName}</p>
-              <p className="text-slate-600">
+          <Popup maxWidth={220} minWidth={150}>
+            <div className="text-xs">
+              <p className="font-bold leading-tight text-navy-800">{project.projectName}</p>
+              <p className="mt-1 text-[11px] text-slate-600">
                 {district}, {state}
               </p>
-              <p className="mt-1 text-xs text-slate-500">{project.startupName}</p>
+              <p className="mt-0.5 text-[10px] text-slate-500">{project.startupName}</p>
             </div>
           </Popup>
         </Marker>
