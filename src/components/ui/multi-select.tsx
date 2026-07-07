@@ -1,6 +1,6 @@
-import { ChevronDown, X } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import { Badge } from '@/components/ui/badge'
+
 import { Checkbox } from '@/components/ui/checkbox'
 import { cn } from '@/lib/utils'
 
@@ -74,33 +74,6 @@ export function MultiSelectDropdown<T extends string | number = string>({
           className={cn('h-4 w-4 shrink-0 text-slate-400 transition-transform', open && 'rotate-180')}
         />
       </button>
-
-      {selected.length > 0 && (
-        <div className="mt-1.5 flex flex-wrap gap-1">
-          {selected.map((value) => {
-            const option = options.find((o) => o.value === value)
-            return (
-              <Badge
-                key={String(value)}
-                variant="secondary"
-                className="gap-1 pr-1 text-xs"
-              >
-                {option?.label ?? value}
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    toggle(value)
-                  }}
-                  className="rounded-full p-0.5 hover:bg-slate-200"
-                >
-                  <X className="h-3 w-3" />
-                </button>
-              </Badge>
-            )
-          })}
-        </div>
-      )}
 
       {open && (
         <div className="absolute left-0 right-0 top-full z-50 mt-1 max-h-60 overflow-auto rounded-lg bg-white py-1 shadow-lg ring-1 ring-slate-100">

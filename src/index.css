@@ -2,6 +2,7 @@
 @import "leaflet/dist/leaflet.css";
 
 @theme {
+  --color-page-bg: #f7f4ef;
   --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
   --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
 
@@ -24,18 +25,19 @@
   --color-emerald-500: #138808;
   --color-emerald-600: #0f6f06;
 
-  --color-glass: rgba(255, 255, 255, 0.72);
-  --color-glass-border: rgba(255, 255, 255, 0.35);
+  --color-glass: rgba(255, 255, 255, 0.06);
+  --color-glass-border: rgba(255, 255, 255, 0.12);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body {
-    @apply m-0 min-h-screen overflow-x-hidden bg-slate-50 text-slate-800 antialiased;
+    background-color: #f7f4ef;
+    @apply m-0 min-h-screen overflow-x-clip text-slate-800 antialiased;
     font-family: var(--font-sans);
   }
 

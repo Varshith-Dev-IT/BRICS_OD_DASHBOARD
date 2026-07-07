@@ -54,12 +54,12 @@ function KPICard({ label, value, icon, delay, accent = 'from-navy-600 to-navy-80
 }
 
 const KPI_CONFIG = [
-  { label: 'Total Projects', key: 'totalProjects' as const, icon: <Layers className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-navy-500 to-navy-700' },
-  { label: 'Startups', key: 'startups' as const, icon: <Rocket className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-saffron-500 to-saffron-600' },
-  { label: 'TRL ≥ 6', key: 'trlAbove6' as const, icon: <Target className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-violet-500 to-violet-700' },
-  { label: 'Pilot States', key: 'pilotStates' as const, icon: <MapPin className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-emerald-500 to-emerald-600' },
-  { label: 'SDGs Covered', key: 'sdgsCovered' as const, icon: <Globe className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-cyan-500 to-cyan-700' },
-  { label: 'Sectors', key: 'sectors' as const, icon: <Building2 className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-rose-500 to-rose-700' },
+  { label: 'Total Projects', key: 'totalProjects' as const, icon: <Layers className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-navy-400 to-navy-600' },
+  { label: 'Startups', key: 'startups' as const, icon: <Rocket className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-saffron-400 to-saffron-600' },
+  { label: 'TRL ≥ 6', key: 'trlAbove6' as const, icon: <Target className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-violet-400 to-violet-600' },
+  { label: 'Pilot States', key: 'pilotStates' as const, icon: <MapPin className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-emerald-400 to-emerald-600' },
+  { label: 'SDGs Covered', key: 'sdgsCovered' as const, icon: <Globe className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-cyan-400 to-cyan-600' },
+  { label: 'Sectors', key: 'sectors' as const, icon: <Building2 className="h-4 w-4 text-white sm:h-5 sm:w-5" />, accent: 'from-rose-400 to-rose-600' },
 ]
 
 export function HeroSection() {

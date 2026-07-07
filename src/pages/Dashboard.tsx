@@ -27,11 +27,20 @@ export function Dashboard() {
   )
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen" style={{ backgroundColor: '#f7f4ef' }}>
       <HeroSection />
 
-      <section className="mx-auto max-w-7xl px-3 pb-6 pt-4 sm:px-6 sm:pb-8 sm:pt-6 lg:px-8">
-        <div className="sticky top-0 z-50 -mx-3 mb-6 max-h-[85vh] overflow-y-auto bg-slate-50/95 px-3 pb-4 pt-2 backdrop-blur-md sm:-mx-6 sm:mb-8 sm:max-h-none sm:overflow-visible sm:px-6 sm:pb-6 lg:-mx-8 lg:px-8">
+      {/* Filter Band — full-width with richer warm tone */}
+      <div
+        className="sticky top-0 z-50 w-full"
+        style={{
+          backgroundColor: 'rgba(236, 232, 225, 0.97)',
+          borderBottom: '2px solid #d6cfc4',
+          backdropFilter: 'blur(12px)',
+          boxShadow: '0 4px 16px rgba(0,0,0,0.07)',
+        }}
+      >
+        <div className="mx-auto max-w-7xl px-3 py-4 sm:px-6 sm:py-5 lg:px-8">
           <FilterPanel
             filters={filters}
             onChange={setFilters}
@@ -39,7 +48,10 @@ export function Dashboard() {
             resultCount={filteredProjects.length}
           />
         </div>
+      </div>
 
+      {/* Projects Section — lighter background */}
+      <section className="mx-auto max-w-7xl px-3 pb-6 pt-6 sm:px-6 sm:pb-8 sm:pt-8 lg:px-8">
         <div>
           <div className="mb-4 sm:mb-6">
             <h2 className={SECTION_TITLE}>Innovation Projects</h2>
@@ -73,7 +85,10 @@ export function Dashboard() {
         </div>
       </section>
 
-      <footer className="bg-white px-3 py-6 sm:py-8">
+      <footer
+        className="px-3 py-6 sm:py-8"
+        style={{ backgroundColor: '#f7f4ef', borderTop: '1px solid #d6cfc4' }}
+      >
         <div className="mx-auto max-w-7xl text-center sm:px-6 lg:px-8">
           <p className="text-sm font-semibold text-navy-800">Operation Dronagiri</p>
           <p className="mt-1 text-xs text-slate-500">

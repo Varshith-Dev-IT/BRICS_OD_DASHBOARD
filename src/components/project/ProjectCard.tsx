@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { SDGBadges } from '@/components/project/SDGBadges'
 import type { Project } from '@/types/project'
 import { SECTOR_COLORS } from '@/types/project'
 
@@ -67,9 +66,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </CardHeader>
 
         <CardContent className="flex flex-1 flex-col p-4 pt-0 sm:p-5">
-          <div className="mb-3 min-h-[1.75rem] sm:min-h-[2rem]">
-            <SDGBadges sdgs={project.sdgs} />
-          </div>
 
           <p className="mb-4 line-clamp-3 min-h-[3.75rem] flex-1 text-sm leading-relaxed text-slate-600 sm:line-clamp-4 sm:min-h-[5rem]">
             {project.shortDescription}
