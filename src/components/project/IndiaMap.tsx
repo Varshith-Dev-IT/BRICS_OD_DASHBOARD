@@ -1,25 +1,63 @@
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import L from 'leaflet'
+import { useCallback, useState } from 'react'
+import {
+  AdvancedMarker,
+  APIProvider,
+  InfoWindow,
+  Map,
+  Pin,
+  useAdvancedMarkerRef,
+} from '@vis.gl/react-google-maps'
 import { motion } from 'framer-motion'
+import { MapPin } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { Project } from '@/types/project'
 
-const markerIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-})
+/** Demo Map ID enables Advanced Markers without a custom Cloud Console map style */
+const MAP_ID = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID || 'DEMO_MAP_ID'
 
 interface IndiaMapProps {
   project: Project
   className?: string
 }
 
-export function IndiaMap({ project, className }: IndiaMapProps) {
+function PilotMarker({ project }: { project: Project }) {
   const { lat, lng, district, state } = project.pilotLocation
+  const [markerRef, marker] = useAdvancedMarkerRef()
+  const [infoOpen, setInfoOpen] = useState(true)
+
+  const handleMarkerClick = useCallback(() => {
+    setInfoOpen((open) => !open)
+  }, [])
+
+  return (
+    <>
+      <AdvancedMarker
+        ref={markerRef}
+        position={{ lat, lng }}
+        onClick={handleMarkerClick}
+        title={project.projectName}
+      >
+        <Pin background="#0B3D91" borderColor="#0a1a3d" glyphColor="#ffffff" />
+      </AdvancedMarker>
+
+      {infoOpen && marker && (
+        <InfoWindow anchor={marker} onCloseClick={() => setInfoOpen(false)}>
+          <div className="max-w-[220px] text-xs">
+            <p className="font-bold leading-tight text-navy-800">{project.projectName}</p>
+            <p className="mt-1 text-[11px] text-slate-600">
+              {district}, {state}
+            </p>
+            <p className="mt-0.5 text-[10px] text-slate-500">{project.startupName}</p>
+          </div>
+        </InfoWindow>
+      )}
+    </>
+  )
+}
+
+export function IndiaMap({ project, className }: IndiaMapProps) {
+  const { lat, lng } = project.pilotLocation
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
   return (
     <motion.div
@@ -31,36 +69,34 @@ export function IndiaMap({ project, className }: IndiaMapProps) {
         className
       )}
     >
-      <MapContainer
-        center={[lat, lng]}
-        zoom={7}
-        style={{ height: '100%', width: '100%' }}
-        scrollWheelZoom={false}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker
-          position={[lat, lng]}
-          icon={markerIcon}
-          eventHandlers={{
-            add: (e) => {
-              setTimeout(() => e.target.openPopup(), 500)
-            },
-          }}
-        >
-          <Popup maxWidth={220} minWidth={150}>
-            <div className="text-xs">
-              <p className="font-bold leading-tight text-navy-800">{project.projectName}</p>
-              <p className="mt-1 text-[11px] text-slate-600">
-                {district}, {state}
-              </p>
-              <p className="mt-0.5 text-[10px] text-slate-500">{project.startupName}</p>
-            </div>
-          </Popup>
-        </Marker>
-      </MapContainer>
+      {!apiKey ? (
+        <div className="flex h-full min-h-[300px] flex-col items-center justify-center gap-2 bg-slate-100 px-4 text-center">
+          <MapPin className="h-8 w-8 text-navy-600" />
+          <p className="text-sm font-medium text-slate-700">Google Maps API key not configured</p>
+          <p className="text-xs text-slate-500">
+            Set <code className="rounded bg-slate-200 px-1">VITE_GOOGLE_MAPS_API_KEY</code> in your
+            .env file
+          </p>
+        </div>
+      ) : (
+        <APIProvider apiKey={apiKey}>
+          <Map
+            style={{ width: '100%', height: '100%', borderRadius: '0.75rem' }}
+            defaultCenter={{ lat, lng }}
+            defaultZoom={7}
+            mapId={MAP_ID}
+            gestureHandling="cooperative"
+            disableDefaultUI={false}
+            zoomControl
+            mapTypeControl={false}
+            streetViewControl={false}
+            fullscreenControl
+            scrollwheel={false}
+          >
+            <PilotMarker project={project} />
+          </Map>
+        </APIProvider>
+      )}
     </motion.div>
   )
 }
