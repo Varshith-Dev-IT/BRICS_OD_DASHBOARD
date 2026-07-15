@@ -57,7 +57,7 @@ function KPICard({ label, value, icon, delay, accent = 'from-navy-600 to-navy-80
 const KPI_CONFIG = [
   { label: 'Total Projects', key: 'totalProjects' as const, icon: <Layers className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-navy-400 to-navy-600' },
   { label: 'TRL ≥ 6', key: 'trlAbove6' as const, icon: <Target className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-violet-400 to-violet-600' },
-  { label: 'Pilot States', key: 'pilotStates' as const, icon: <MapPin className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-emerald-400 to-emerald-600' },
+  { label: 'Pilot Districts', key: 'pilotDistricts' as const, icon: <MapPin className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-emerald-400 to-emerald-600' },
   { label: 'SDGs Covered', key: 'sdgsCovered' as const, icon: <Globe className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-cyan-400 to-cyan-600' },
   { label: 'Sectors', key: 'sectors' as const, icon: <Building2 className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" />, accent: 'from-rose-400 to-rose-600' },
 ]
@@ -77,22 +77,14 @@ export function HeroSection() {
           transition={{ duration: 0.7 }}
           className="text-center"
         >
-          <div className="mb-4 inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] text-white/80 backdrop-blur-sm sm:px-4 sm:text-sm">
-            <span className="h-2 w-2 shrink-0 rounded-full bg-saffron-500 animate-pulse" />
-            <span className="sm:inline">Government Innovation Mission</span>
-          </div>
-
           <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
             <span className="text-gradient">Operation Dronagiri</span>
           </h1>
 
-          <p className="mt-2 text-base font-semibold text-saffron-400 sm:mt-3 sm:text-xl">
-            Innovation & Product Intelligence Dashboard
-          </p>
 
-          <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-white/70 sm:mt-4 sm:text-base lg:text-lg">
-            Showcase of startups, technologies, pilots, TRL maturity, SDG impact and
-            innovation ecosystem under Operation Dronagiri.
+          <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-white/80 sm:mt-4 sm:text-base lg:text-lg">
+            Empowering India’s future with geospatial data, innovation, and collaboration.
+            Operation Dronagiri is a strategic initiative under the National Geospatial Policy (NGP) introduced by the Department of Science & Technology (DST) to demonstrate the tangible benefits of geospatial technology across three key sectors: Agriculture, Transportation & Infrastructure, and Livelihoods & Skilling.
           </p>
         </motion.div>
 

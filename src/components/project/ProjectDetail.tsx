@@ -88,187 +88,187 @@ export function ProjectDetail({ project, variant = 'accordion' }: ProjectDetailP
 
   const content = (
     <div className={`space-y-5 p-4 sm:space-y-6 sm:p-5 lg:p-6 ${variant === 'accordion' ? 'border-t border-slate-100 bg-slate-50/50' : ''}`}>
-        {/* Project Overview */}
-        <section>
-          <SectionTitle>Project Overview</SectionTitle>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { label: 'Startup', value: project.startupName },
-              { label: 'Project', value: project.projectName },
-              { label: 'Sector', value: project.sector },
-              { label: 'Pilot District', value: `${project.pilotLocation.district}, ${project.pilotLocation.state}` },
-              { label: 'TRL', value: `TRL ${project.trl}` },
-              { label: 'Current Location', value: project.currentLocation },
-              { label: 'Expansion Plan', value: project.expansionPlan, fullWidth: true },
-            ].map((item) => (
+      {/* Project Overview */}
+      <section>
+        <SectionTitle>Project Overview</SectionTitle>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { label: 'Startup', value: project.startupName },
+            { label: 'Project', value: project.projectName },
+            { label: 'Sector', value: project.sector },
+            { label: 'Pilot Districts', value: `${project.pilotLocation.district}, ${project.pilotLocation.state}` },
+            { label: 'TRL', value: `TRL ${project.trl}` },
+            { label: 'Current Location', value: project.currentLocation },
+            { label: 'Expansion Plan', value: project.expansionPlan, fullWidth: true },
+          ].map((item) => (
+            <div
+              key={item.label}
+              className={cn(
+                'rounded-lg bg-white p-3 shadow-sm',
+                item.fullWidth && 'sm:col-span-2 lg:col-span-3'
+              )}
+            >
+              <p className="text-xs text-slate-500">{item.label}</p>
+              <p className="mt-0.5 text-sm font-medium text-slate-800">{item.value}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">{project.overview}</p>
+      </section>
+
+      <Separator />
+
+      {/* Problem Statement */}
+      <section>
+        <SectionTitle>Problem Statement</SectionTitle>
+        <div className="rounded-xl border-l-4 border-saffron-500 bg-saffron-50/50 p-4">
+          <p className="text-sm leading-relaxed text-slate-700">{project.problemStatement}</p>
+        </div>
+      </section>
+
+      {/* Solution */}
+      <section>
+        <SectionTitle>Solution</SectionTitle>
+        <p className="text-sm leading-relaxed text-slate-700">{project.solution}</p>
+      </section>
+
+      {/* Technologies */}
+      <section>
+        <SectionTitle>Technologies Used</SectionTitle>
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <Badge key={tech} variant="secondary" className="px-3 py-1">
+              {tech}
+            </Badge>
+          ))}
+        </div>
+      </section>
+
+      {/* Target Users */}
+      <section>
+        <SectionTitle>Target Users</SectionTitle>
+        <div className="flex flex-wrap gap-2">
+          {project.targetUsers.map((user) => (
+            <span
+              key={user}
+              className="inline-flex items-center gap-1.5 rounded-full bg-navy-50 px-3 py-1.5 text-xs font-medium text-navy-800"
+            >
+              <Users className="h-3 w-3" />
+              {user}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Key Features */}
+      <section>
+        <SectionTitle>Key Features</SectionTitle>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {project.keyFeatures.map((feature) => {
+            const Icon = getFeatureIcon(feature.icon)
+            return (
               <div
-                key={item.label}
-                className={cn(
-                  'rounded-lg bg-white p-3 shadow-sm',
-                  item.fullWidth && 'sm:col-span-2 lg:col-span-3'
-                )}
+                key={feature.name}
+                className="flex gap-3 rounded-xl bg-slate-50 p-3 shadow-sm transition-shadow sm:p-4 sm:hover:shadow-soft"
               >
-                <p className="text-xs text-slate-500">{item.label}</p>
-                <p className="mt-0.5 text-sm font-medium text-slate-800">{item.value}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-3 text-sm leading-relaxed text-slate-600">{project.overview}</p>
-        </section>
-
-        <Separator />
-
-        {/* Problem Statement */}
-        <section>
-          <SectionTitle>Problem Statement</SectionTitle>
-          <div className="rounded-xl border-l-4 border-saffron-500 bg-saffron-50/50 p-4">
-            <p className="text-sm leading-relaxed text-slate-700">{project.problemStatement}</p>
-          </div>
-        </section>
-
-        {/* Solution */}
-        <section>
-          <SectionTitle>Solution</SectionTitle>
-          <p className="text-sm leading-relaxed text-slate-700">{project.solution}</p>
-        </section>
-
-        {/* Technologies */}
-        <section>
-          <SectionTitle>Technologies Used</SectionTitle>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
-              <Badge key={tech} variant="secondary" className="px-3 py-1">
-                {tech}
-              </Badge>
-            ))}
-          </div>
-        </section>
-
-        {/* Target Users */}
-        <section>
-          <SectionTitle>Target Users</SectionTitle>
-          <div className="flex flex-wrap gap-2">
-            {project.targetUsers.map((user) => (
-              <span
-                key={user}
-                className="inline-flex items-center gap-1.5 rounded-full bg-navy-50 px-3 py-1.5 text-xs font-medium text-navy-800"
-              >
-                <Users className="h-3 w-3" />
-                {user}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        {/* Key Features */}
-        <section>
-          <SectionTitle>Key Features</SectionTitle>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {project.keyFeatures.map((feature) => {
-              const Icon = getFeatureIcon(feature.icon)
-              return (
                 <div
-                  key={feature.name}
-                  className="flex gap-3 rounded-xl bg-slate-50 p-3 shadow-sm transition-shadow sm:p-4 sm:hover:shadow-soft"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg"
+                  style={{ backgroundColor: `${sectorColor}15` }}
                 >
-                  <div
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg"
-                    style={{ backgroundColor: `${sectorColor}15` }}
-                  >
-                    <Icon className="h-5 w-5" style={{ color: sectorColor }} />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-800">{feature.name}</p>
-                    <p className="mt-0.5 text-xs leading-relaxed text-slate-500">
-                      {feature.description}
-                    </p>
-                  </div>
+                  <Icon className="h-5 w-5" style={{ color: sectorColor }} />
                 </div>
-              )
-            })}
-          </div>
-        </section>
-
-        {/* Value Proposition */}
-        <section>
-          <SectionTitle>Value Proposition</SectionTitle>
-          <p className="rounded-lg bg-navy-50 p-4 text-sm leading-relaxed text-navy-900">
-            {project.valueProposition}
-          </p>
-        </section>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Side: Map */}
-          <div className="flex h-full flex-col">
-            {/* India Map */}
-            <section className="flex flex-1 flex-col">
-              <SectionTitle>India Map — Pilot Deployment</SectionTitle>
-              <IndiaMap project={project} />
-            </section>
-          </div>
-
-          {/* Right Side: TRL, Impact, SDGs, and Resources */}
-          <div className="space-y-6">
-            {/* TRL Visualization */}
-            <section>
-              <TRLIndicator trl={project.trl} />
-            </section>
-
-            {/* Impact */}
-            <section>
-              <SectionTitle>Impact</SectionTitle>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-xl bg-emerald-50/80 p-3 sm:p-4">
-                  <div className="mb-3 flex items-center gap-2">
-                    <Leaf className="h-5 w-5 text-emerald-600" />
-                    <h5 className="font-semibold text-emerald-800">Environmental Impact</h5>
-                  </div>
-                  <ul className="space-y-1.5">
-                    {project.environmentalImpact.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm text-emerald-700">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="rounded-xl bg-blue-50/80 p-3 sm:p-4">
-                  <div className="mb-3 flex items-center gap-2">
-                    <Users className="h-5 w-5 text-blue-600" />
-                    <h5 className="font-semibold text-blue-800">Social Impact</h5>
-                  </div>
-                  <ul className="space-y-1.5">
-                    {project.socialImpact.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm text-blue-700">
-                        <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                <div>
+                  <p className="text-sm font-semibold text-slate-800">{feature.name}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-slate-500">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
-            </section>
+            )
+          })}
+        </div>
+      </section>
 
-            {/* SDGs */}
-            <section>
-              <SectionTitle>SDGs</SectionTitle>
-              <SDGBadges sdgs={project.sdgs} size="md" />
-            </section>
+      {/* Value Proposition */}
+      <section>
+        <SectionTitle>Value Proposition</SectionTitle>
+        <p className="rounded-lg bg-navy-50 p-4 text-sm leading-relaxed text-navy-900">
+          {project.valueProposition}
+        </p>
+      </section>
 
-            {/* Resources */}
-            <section>
-              <SectionTitle>Resources & Links</SectionTitle>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {project.resources
-                  .filter((r) => r.type === 'website')
-                  .map((resource) => (
-                    <ResourceCard key={resource.title} {...resource} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Left Side: Map */}
+        <div className="flex h-full flex-col">
+          {/* India Map */}
+          <section className="flex flex-1 flex-col">
+            <SectionTitle>India Map — Pilot Deployment</SectionTitle>
+            <IndiaMap project={project} />
+          </section>
+        </div>
+
+        {/* Right Side: TRL, Impact, SDGs, and Resources */}
+        <div className="space-y-6">
+          {/* TRL Visualization */}
+          <section>
+            <TRLIndicator trl={project.trl} />
+          </section>
+
+          {/* Impact */}
+          <section>
+            <SectionTitle>Impact</SectionTitle>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl bg-emerald-50/80 p-3 sm:p-4">
+                <div className="mb-3 flex items-center gap-2">
+                  <Leaf className="h-5 w-5 text-emerald-600" />
+                  <h5 className="font-semibold text-emerald-800">Environmental Impact</h5>
+                </div>
+                <ul className="space-y-1.5">
+                  {project.environmentalImpact.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-emerald-700">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      {item}
+                    </li>
                   ))}
+                </ul>
               </div>
-            </section>
-          </div>
+              <div className="rounded-xl bg-blue-50/80 p-3 sm:p-4">
+                <div className="mb-3 flex items-center gap-2">
+                  <Users className="h-5 w-5 text-blue-600" />
+                  <h5 className="font-semibold text-blue-800">Social Impact</h5>
+                </div>
+                <ul className="space-y-1.5">
+                  {project.socialImpact.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-blue-700">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* SDGs */}
+          <section>
+            <SectionTitle>SDGs</SectionTitle>
+            <SDGBadges sdgs={project.sdgs} size="md" />
+          </section>
+
+          {/* Resources */}
+          <section>
+            <SectionTitle>Resources & Links</SectionTitle>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {project.resources
+                .filter((r) => r.type === 'website')
+                .map((resource) => (
+                  <ResourceCard key={resource.title} {...resource} />
+                ))}
+            </div>
+          </section>
         </div>
       </div>
+    </div>
   )
 
   if (variant === 'page') {

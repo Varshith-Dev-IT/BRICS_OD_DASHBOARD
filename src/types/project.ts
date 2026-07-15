@@ -71,7 +71,7 @@ export interface KPIData {
   totalProjects: number
   startups: number
   trlAbove6: number
-  pilotStates: number
+  pilotDistricts: number
   sdgsCovered: number
   sectors: number
 }
@@ -103,7 +103,7 @@ export const KPI_DATA: KPIData = {
   totalProjects: 22,
   startups: 22,
   trlAbove6: 13,
-  pilotStates: 5,
+  pilotDistricts: 6,
   sdgsCovered: 13,
   sectors: 3,
 }

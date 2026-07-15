@@ -4,10 +4,8 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { MultiSelectDropdown } from '@/components/ui/multi-select'
-import { NativeSelect } from '@/components/ui/native-select'
 import { cn } from '@/lib/utils'
-import type { FilterState, Sector, StartupType } from '@/types/project'
-import { SDG_INFO } from '@/types/project'
+import type { FilterState, Sector } from '@/types/project'
 
 const SECTORS: Sector[] = [
   'Agriculture',
@@ -15,20 +13,16 @@ const SECTORS: Sector[] = [
   'Livelihood & Skilling',
 ]
 
-const STARTUP_TYPES: StartupType[] = ['ESS', 'GSS', 'Corporate']
-const TRL_LEVELS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-const SDG_LEVELS = Object.keys(SDG_INFO).map(Number)
 
 const SECTION_TITLE = 'font-display text-lg font-bold text-slate-900 sm:text-xl'
 
 interface FilterPanelProps {
   filters: FilterState
   onChange: (filters: FilterState) => void
-  locations: string[]
   resultCount: number
 }
 
-export function FilterPanel({ filters, onChange, locations, resultCount }: FilterPanelProps) {
+export function FilterPanel({ filters, onChange, resultCount }: FilterPanelProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const resetFilters = () => {
@@ -42,20 +36,10 @@ export function FilterPanel({ filters, onChange, locations, resultCount }: Filte
     })
   }
 
-  const hasActiveFilters =
-    filters.sectors.length > 0 ||
-    filters.startupTypes.length > 0 ||
-    filters.pilotLocation ||
-    filters.sdgs.length > 0 ||
-    filters.trlLevels.length > 0 ||
-    filters.search
+  const hasActiveFilters = filters.sectors.length > 0 || filters.search
 
   const activeFilterCount = [
     filters.sectors.length,
-    filters.startupTypes.length,
-    filters.pilotLocation ? 1 : 0,
-    filters.sdgs.length,
-    filters.trlLevels.length,
     filters.search ? 1 : 0,
   ].reduce((a, b) => a + b, 0)
 
@@ -119,7 +103,7 @@ export function FilterPanel({ filters, onChange, locations, resultCount }: Filte
 
       <div
         className={cn(
-          'grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6',
+          'grid gap-4 grid-cols-1 sm:grid-cols-2',
           !mobileOpen && 'hidden md:grid'
         )}
       >
@@ -129,49 +113,6 @@ export function FilterPanel({ filters, onChange, locations, resultCount }: Filte
           options={SECTORS.map((s) => ({ value: s, label: s }))}
           selected={filters.sectors}
           onChange={(sectors) => onChange({ ...filters, sectors })}
-        />
-
-        <MultiSelectDropdown<StartupType>
-          label="Startup Type"
-          placeholder="All Types"
-          options={STARTUP_TYPES.map((t) => ({ value: t, label: t }))}
-          selected={filters.startupTypes}
-          onChange={(startupTypes) => onChange({ ...filters, startupTypes })}
-        />
-
-        <NativeSelect
-          label="Pilot Location"
-          value={filters.pilotLocation || ''}
-          onChange={(e) => onChange({ ...filters, pilotLocation: e.target.value })}
-        >
-          <option value="">All Locations</option>
-          {locations.map((loc) => (
-            <option key={loc} value={loc}>
-              {loc}
-            </option>
-          ))}
-        </NativeSelect>
-
-        <MultiSelectDropdown<number>
-          label="SDG Levels"
-          placeholder="All SDGs"
-          options={SDG_LEVELS.map((sdg) => ({
-            value: sdg,
-            label: `SDG ${sdg} – ${SDG_INFO[sdg].title}`,
-          }))}
-          selected={filters.sdgs}
-          onChange={(sdgs) => onChange({ ...filters, sdgs })}
-        />
-
-        <MultiSelectDropdown<number>
-          label="TRL Levels"
-          placeholder="All TRL Levels"
-          options={TRL_LEVELS.map((trl) => ({
-            value: trl,
-            label: `TRL ${trl}`,
-          }))}
-          selected={filters.trlLevels}
-          onChange={(trlLevels) => onChange({ ...filters, trlLevels })}
         />
 
         <div className="hidden md:block">
